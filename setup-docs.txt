@@ -1,0 +1,23 @@
+#Unleashing the Power of Data: Introducing Apache DevLake
+
+#How to Setup DevLake?
+
+To implement a proof of concept for Apache DevLake tailored to your specific use cases, you can install it on your local machines using Docker Compose. The detailed instructions for this setup can be found in the Docker Compose setup documentation.
+
+Alternatively, if your infrastructure is powered by Kubernetes, you can explore the Helm setup option. The Helm setup documentation provides guidance on deploying and configuring Apache DevLake using Helm.
+
+#Installation via Helm
+Prerequisites​
+Helm >= 3.6.0
+Kubernetes >= 1.19.0
+To install the chart with release name devlake, follow these steps:
+
+Step 1: Secure Encryption Key
+Start by generating a secure encryption key using a reliable method like OpenSSL. For instance, run the following command to create a 128-character string of uppercase letters:
+
+openssl rand -base64 2000 | tr -dc 'A-Z' | fold -w 128 | head -n 1
+Copy the generated string and set the value of the ENCRYPTION_SECRET environment variable by running the following command:
+
+export ENCRYPTION_SECRET="copied string"
+Remember, keeping the ENCRYPTION_SECRET safe is crucial, as it encrypts sensitive information such as personal access tokens and passwords in the database.
+
